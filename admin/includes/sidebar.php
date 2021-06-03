@@ -1,0 +1,194 @@
+
+<style>
+body{
+
+  background-color: #dfe5ea;
+}
+
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 250px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0;
+  }
+
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+}
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+</style>
+<body>
+
+<div id="wrapper">
+
+  <!-- Sidebar -->
+       <div id="sidebar-wrapper">
+<ul class="sidebar-nav">
+
+<li class="sidebar-brand">
+
+<a href="index.php">
+Home
+</a>
+</li>
+<li data-toggle="collapse" data-target="#student" class="collapsed">
+<a href="#"><i class=""></i> Student <span class="arrow"></span></a>
+</li>  
+<ul class="sub-menu collapse" id="student">
+<li><a href="addstudent.php">Add Student</a></li>
+<li><a href="student.php">Student List</a></li>
+</ul>
+
+<li data-toggle="collapse" data-target="#teacher" class="collapsed">
+<a href="#"><i class=""></i> Teacher <span class="arrow"></span></a>
+</li>  
+<ul class="sub-menu collapse" id="teacher">
+<li><a href="addteacher.php">Add Teacher</a></li>
+<li><a href="teacher.php">Teacher List</a></li>
+</ul>
+<li>
+<li data-toggle="collapse" data-target="#subject" class="collapsed">
+<a href="#"><i class=""></i> Subject <span class="arrow"></span></a>
+</li>  
+<ul class="sub-menu collapse" id="subject">
+<li><a href="addsubject.php">Add Subject</a></li>
+<li><a href="subject.php">Subject List</a></li>
+</ul>
+<li>
+<li data-toggle="collapse" data-target="#class" class="collapsed">
+<a href="#"><i class=""></i> Class <span class="arrow"></span></a>
+</li>  
+<ul class="sub-menu collapse" id="class">
+<li><a href="addclass.php">Add Class</a></li>
+<li><a href="class.php">Class List</a></li>
+</ul>
+<li>
+<a href="addmarks.php">Add Marks</a>
+</li>
+<li>
+<a href="studentmarks.php">Student Wise Marks</a>
+</li>
+<li>
+<a href="logout.php">Logout</a>
+</li>
+</ul>
+</div>
+
+ <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-align-justify"></span></a>
+<script>
+$("#menu-toggle").click(function(e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+  });
+</script> 
